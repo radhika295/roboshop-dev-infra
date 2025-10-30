@@ -2,7 +2,7 @@
 
 dnf install ansible -y
 
-ansible-pull -U https://github.com/radhika295/ansible-roboshop-roles-tf.git -e component=mongodb main.yaml
+#ansible-pull -U https://github.com/radhika295/ansible-roboshop-roles-tf.git -e component=mongodb main.yaml
 
 REPO_URL=https://github.com/radhika295/ansible-roboshop-roles-tf.git
 REPO_DIR=/opt/roboshop/ansible
