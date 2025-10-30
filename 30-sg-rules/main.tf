@@ -50,7 +50,7 @@ resource "aws_security_group_rule" "redis_bastion" {
   protocol                 = "tcp"
 }
 
-# reddis accepts traffic from bastion 
+# rabbitmq accepts traffic from bastion 
 resource "aws_security_group_rule" "rabbitmq_bastion" {
   type                     = "ingress"
   security_group_id        = local.rabbitmq_sg_id   # Bastion SG ID
@@ -59,4 +59,15 @@ resource "aws_security_group_rule" "rabbitmq_bastion" {
   to_port                  = 22
   protocol                 = "tcp"
 }
+
+# mysql accepts traffic from bastion 
+resource "aws_security_group_rule" "mysql_bastion" {
+  type                     = "ingress"
+  security_group_id        = local.mysql_sg_id   # Bastion SG ID
+  source_security_group_id = local.bastion_sg_id
+  from_port                = 22
+  to_port                  = 22
+  protocol                 = "tcp"
+}
+
 
